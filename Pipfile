@@ -7,8 +7,13 @@ name = "pypi"
 
 [packages]
 
-mutagen = "*"
-pyinstaller = "*"
+mutagen = "==1.40.*"
+pyinstaller = "==3.3.*"
+cython = "==0.25.*"
+kivy = "==1.10.*"
+pygame = "==1.9.*"
+pillow = "==5.1.*"
+pyenchant = "*"
 
 
 [dev-packages]
