@@ -22,17 +22,20 @@ def main():
             except mutagen.mp3.HeaderNotFoundError as err:
                 print('ERROR: Bad file, ', err)
 
+        metadata = [m for m in metadata if m.get('metadata')]
+
         with open(out, 'w+') as write_file:
             csv_writer = csv.writer(write_file, delimiter=';', quotechar='|', quoting=csv.QUOTE_MINIMAL)
             csv_writer.writerow(['Имя файла', 'Название', 'Исполнитель', 'Жанр', 'Альбом'])
 
             for row in metadata:
                 filename = row.get('filename', '')
-                metadata = row.get('metadata')
-                name = metadata.get('TIT2', '')
-                singer = metadata.get('TPE1', '')
-                genre = metadata.get('TXXX:WM/GenreID ', '')
-                album = metadata.get('TALB', '')
+                print(row)
+                meta = row.get('metadata')
+                name = meta.get('TIT2', '')
+                singer = meta.get('TPE1', '')
+                genre = meta.get('TXXX:WM/GenreID ', '')
+                album = meta.get('TALB', '')
 
                 csv_writer.writerow([filename, name, singer, genre, album])
 

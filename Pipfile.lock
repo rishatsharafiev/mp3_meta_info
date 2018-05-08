@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b3d30cb3019c0540d47fe50e34fcf4e566a8724e62857252dcdb358ccb1f265d"
+            "sha256": "786bdc6a4291a5a7dfee7090be42b7402adda62a9cccfd626762ab8d1feb3de5"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -191,6 +191,15 @@
                 "sha256:c8a4b39ba380b57a31a4b5449a9d257b1302d8bc4799767e645dcee25725efe1"
             ],
             "version": "==5.1.0"
+        },
+        "pyenchant": {
+            "hashes": [
+                "sha256:e8000144e61551fcab9cd1b6fdccdded20e577e8d6d0985533f0b2b9c38fd952",
+                "sha256:b9526fc2c5f1ba0637e50200b645a7c20fb6644dbc6f6322027e7d2fbf1084a5",
+                "sha256:fc31cda72ace001da8fe5d42f11c26e514a91fa8c70468739216ddd8de64e2a0",
+                "sha256:9a66aa441535e27d228baca320f7feed1b08d0c5e6167d5e5cf455b545b7c2cd"
+            ],
+            "version": "==2.0.0"
         },
         "pygame": {
             "hashes": [
