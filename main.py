@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import os
 import csv
 import argparse
@@ -24,20 +26,22 @@ def main():
 
         metadata = [m for m in metadata if m.get('metadata')]
 
-        with open(out, 'w+') as write_file:
+        with open(out, 'w', encoding='utf-8') as write_file:
             csv_writer = csv.writer(write_file, delimiter=';', quotechar='|', quoting=csv.QUOTE_MINIMAL)
-            csv_writer.writerow(['Имя файла', 'Название', 'Исполнитель', 'Жанр', 'Альбом'])
+            col_names = ['Имя файла', 'Название', 'Исполнитель', 'Жанр', 'Альбом', 'Композитор', 'Комментарий']
+            csv_writer.writerow([i.encode('utf8').decode('utf8') for i in col_names])
 
             for row in metadata:
                 filename = row.get('filename', '')
-                print(row)
                 meta = row.get('metadata')
                 name = meta.get('TIT2', '')
                 singer = meta.get('TPE1', '')
                 genre = meta.get('TXXX:WM/GenreID ', '')
                 album = meta.get('TALB', '')
+                composer = meta.get('TCOM', '')
+                comment = meta.get('COMM::rus', '')
 
-                csv_writer.writerow([filename, name, singer, genre, album])
+                csv_writer.writerow([filename, name, singer, genre, album, composer, comment])
 
         print('Done!!!')
     else:
